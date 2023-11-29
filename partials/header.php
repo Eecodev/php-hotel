@@ -28,9 +28,16 @@ include __DIR__ ."/../model/db.php";
             </select>
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <h6 class="mt-3">Search by Ranking</h6>
-        <form class="d-flex mt-3" role="search" action="index.php" method="GET">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="vote">
+        <h6 class="mt-3">Search by Rate</h6>
+        <form class="d-flex" role="search" action="index.php" method="GET">
+            <select class="fomr-control me-2" placeholder="Search" aria-label="Search" name="vote">
+                <option value="all">All</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </header>

@@ -18,23 +18,20 @@ if(isset($_GET["parking"])) {
     $hotels = array_filter($hotels, fn($item) => $parking === 'all' || $item['parking'] == $parking);
 }
 
-function filter_by_vote($vote){
-    $vote = $_GET['vote'];
-    return $vote === '' || $hotel['vote'] === $vote;
+// Filtering by Rate
+function filter_by_vote($hotel){
+    if(isset($_GET['vote'])){
+        $vote = $_GET['vote'];
+        if ($vote === '') {
+            return true;
+        } else {
+            return $hotel['vote'] == $vote; 
+        }
+    }
+    return true; 
 }
 
-// Filtering by Ranking
 if(isset($_GET["vote"])) {
-    $vote = $_GET["vote"];
-    //var_dump($vote);
-    $temp = [];
-    // foreach($hotels as $hotel){
-    //     if($hotel['vote'] === (bool) $vote){
-    //         $temp[] = $hotel;
-    //     }
-    // }
-    // $hotel = $temp;
-    
     $hotels = array_filter($hotels, 'filter_by_vote');
 }
 
