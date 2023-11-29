@@ -18,4 +18,12 @@ include __DIR__ ."/../model/db.php";
 
     <header class="container">
         <h1>Hotels</h1>
+
+        <form class="d-flex" role="search" action="index.php" method="GET">
+            <select class="fomr-control me-2" placeholder="Search" aria-label="Search" name="parking">
+                <option value="">Not Available</option>
+                <option value="1">Available</option>
+            </select>
+            <button class="btn btn-outline-success" type="submit">Choose Parking</button>
+        </form>
     </header>
