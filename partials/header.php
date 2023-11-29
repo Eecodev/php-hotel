@@ -19,11 +19,18 @@ include __DIR__ ."/../model/db.php";
     <header class="container">
         <h1>Hotels</h1>
 
+        <h6>Search by Parking</h6>
         <form class="d-flex" role="search" action="index.php" method="GET">
             <select class="fomr-control me-2" placeholder="Search" aria-label="Search" name="parking">
+                <option value="all">All</option>
                 <option value="">Not Available</option>
                 <option value="1">Available</option>
             </select>
-            <button class="btn btn-outline-success" type="submit">Choose Parking</button>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <h6 class="mt-3">Search by Ranking</h6>
+        <form class="d-flex mt-3" role="search" action="index.php" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="vote">
+            <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
     </header>

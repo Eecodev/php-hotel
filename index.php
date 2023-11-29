@@ -3,13 +3,37 @@
 include __DIR__ ."/partials/header.php";
 // var_dump($hotels);
 
+// Filtering by Parking 
+if(isset($_GET["parking"])) {
+    $parking = $_GET["parking"];
+    //var_dump($parking);
+    $temp = [];
+    // foreach($hotels as $hotel){
+    //     if($hotel['parking'] === (bool) $parking){
+    //         $temp[] = $hotel;
+    //     }
+    // }
+    // $hotel = $temp;
 
+    $hotels = array_filter($hotels, fn($item) => $parking === 'all' || $item['parking'] == $parking);
+}
 
+// Filtering by Ranking
+if(isset($_GET["vote"])) {
+    $vote = $_GET["vote"];
+    //var_dump($vote);
+    $temp = [];
+    // foreach($hotels as $hotel){
+    //     if($hotel['vote'] === (bool) $vote){
+    //         $temp[] = $hotel;
+    //     }
+    // }
+    // $hotel = $temp;
+    
+}
 ?>
 
-    <main class="container">
-
-
+<main class="container">
         <table class="table">
             <thead>
                 <tr>
@@ -18,6 +42,7 @@ include __DIR__ ."/partials/header.php";
                     <th scope="col">Parking</th>
                     <th scope="col">Vote</th>
                     <th scope="col">Distance to Center</th>
+                    <span class="btn"></span></span>
                 </tr>
             </thead>
             <tbody>
@@ -32,4 +57,4 @@ include __DIR__ ."/partials/header.php";
                 <?php } ?>
             </tbody>
         </table>
-    </main>
+</main>
