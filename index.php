@@ -18,6 +18,11 @@ if(isset($_GET["parking"])) {
     $hotels = array_filter($hotels, fn($item) => $parking === 'all' || $item['parking'] == $parking);
 }
 
+function filter_by_vote($vote){
+    $vote = $_GET['vote'];
+    return $vote === '' || $hotel['vote'] === $vote;
+}
+
 // Filtering by Ranking
 if(isset($_GET["vote"])) {
     $vote = $_GET["vote"];
@@ -30,7 +35,9 @@ if(isset($_GET["vote"])) {
     // }
     // $hotel = $temp;
     
+    $hotels = array_filter($hotels, 'filter_by_vote');
 }
+
 ?>
 
 <main class="container">
