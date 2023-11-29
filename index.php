@@ -8,15 +8,28 @@ include __DIR__ ."/partials/header.php";
 ?>
 
     <main class="container">
-        <div>
-            <?php foreach($hotels as $hotel){ ?>
-                <ul>
-                    <li><?php echo $hotel['name']?></li>
-                    <li><?php echo $hotel['description']?></li>
-                    <li><?php echo $hotel['parking']?></li>
-                    <li><?php echo $hotel['vote']?></li>
-                    <li><?php echo $hotel['distance_to_center']?></li>
-                </ul>
-            <?php } ?>
-        </div>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Parking</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance to Center</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($hotels as $hotel){ ?>
+                    <tr>
+                        <th scope="row"><?php echo $hotel['name']?></th>
+                        <td><?php echo $hotel['description']?></td>
+                        <td><?php echo $hotel['parking']?></td>
+                        <td><?php echo $hotel['vote']?></td>
+                        <td><?php echo $hotel['distance_to_center']?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </main>
